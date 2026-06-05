@@ -1,0 +1,10 @@
+Write clean, idiomatic Swift for a lightweight native macOS utility.
+
+- Use Cocoa, AppKit, Foundation, CoreGraphics, ApplicationServices, and other Apple system frameworks for app code.
+- Do not add CocoaPods, Swift Package Manager dependencies, or network-loaded libraries. The vendored OpenKey engine under `ThirdParty/OpenKeyEngine` is allowed and must keep its GPL-3.0 license intact.
+- Favor simple synchronous callbacks for low-latency input event handling.
+- Use structured concurrency only when it meaningfully simplifies lifecycle code.
+- Use [weak self] in escaping closures, especially event loops, UI callbacks, timers, and observers.
+- Do not use raw print statements in application code. Use the centralized OSLog logger helpers.
+- Keep the app event-driven. Avoid polling timers for input, caret tracking, or suggestion updates.
+- Keep module boundaries clear between input capture, mode state, suggestion logic, UI overlay, and automation.

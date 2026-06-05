@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A0000010000000000000001 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001001 /* main.swift */; };
+		5A0000010000000000000002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001002 /* AppDelegate.swift */; };
+		5A0000010000000000000003 /* AppLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001003 /* AppLog.swift */; };
+		5A0000010000000000000004 /* InputMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001004 /* InputMode.swift */; };
+		5A0000010000000000000005 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001005 /* KeyCode.swift */; };
+		5A0000010000000000000006 /* EventTapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001006 /* EventTapManager.swift */; };
+		5A0000010000000000000007 /* KeyboardAutomator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001007 /* KeyboardAutomator.swift */; };
+		5A0000010000000000000008 /* SuggestionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001008 /* SuggestionEngine.swift */; };
+		5A0000010000000000000009 /* SuggestionPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001009 /* SuggestionPanel.swift */; };
+		5A000001000000000000000A /* CaretPositionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A000001000000000000100A /* CaretPositionProvider.swift */; };
+		5A000001000000000000000B /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A000001000000000000100B /* StatusItemController.swift */; };
+		5A000001000000000000000C /* KeyboardLayoutTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A000001000000000000100D /* KeyboardLayoutTranslator.swift */; };
+		5A000001000000000000000D /* OpenKeyVietnameseEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A000001000000000000100E /* OpenKeyVietnameseEngine.swift */; };
+		5A000001000000000000000E /* OpenKeyBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5A000001000000000000100F /* OpenKeyBridge.mm */; };
+		5A000001000000000000000F /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001012 /* Engine.cpp */; };
+		5A0000010000000000000010 /* Vietnamese.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001013 /* Vietnamese.cpp */; };
+		5A0000010000000000000011 /* Macro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001014 /* Macro.cpp */; };
+		5A0000010000000000000012 /* SmartSwitchKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001015 /* SmartSwitchKey.cpp */; };
+		5A0000010000000000000013 /* ConvertTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001016 /* ConvertTool.cpp */; };
+		5A0000010000000000000014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001017 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5A0000010000000000001001 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		5A0000010000000000001002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5A0000010000000000001003 /* AppLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLog.swift; sourceTree = "<group>"; };
+		5A0000010000000000001004 /* InputMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMode.swift; sourceTree = "<group>"; };
+		5A0000010000000000001005 /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
+		5A0000010000000000001006 /* EventTapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTapManager.swift; sourceTree = "<group>"; };
+		5A0000010000000000001007 /* KeyboardAutomator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAutomator.swift; sourceTree = "<group>"; };
+		5A0000010000000000001008 /* SuggestionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionEngine.swift; sourceTree = "<group>"; };
+		5A0000010000000000001009 /* SuggestionPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionPanel.swift; sourceTree = "<group>"; };
+		5A000001000000000000100A /* CaretPositionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretPositionProvider.swift; sourceTree = "<group>"; };
+		5A000001000000000000100B /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
+		5A000001000000000000100C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A000001000000000000100D /* KeyboardLayoutTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutTranslator.swift; sourceTree = "<group>"; };
+		5A000001000000000000100E /* OpenKeyVietnameseEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenKeyVietnameseEngine.swift; sourceTree = "<group>"; };
+		5A000001000000000000100F /* OpenKeyBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenKeyBridge.mm; sourceTree = "<group>"; };
+		5A0000010000000000001010 /* OpenKeyBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenKeyBridge.h; sourceTree = "<group>"; };
+		5A0000010000000000001011 /* NKey-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NKey-Bridging-Header.h"; sourceTree = "<group>"; };
+		5A0000010000000000001012 /* Engine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ThirdParty/OpenKeyEngine/engine/Engine.cpp; sourceTree = SOURCE_ROOT; };
+		5A0000010000000000001013 /* Vietnamese.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ThirdParty/OpenKeyEngine/engine/Vietnamese.cpp; sourceTree = SOURCE_ROOT; };
+		5A0000010000000000001014 /* Macro.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ThirdParty/OpenKeyEngine/engine/Macro.cpp; sourceTree = SOURCE_ROOT; };
+		5A0000010000000000001015 /* SmartSwitchKey.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ThirdParty/OpenKeyEngine/engine/SmartSwitchKey.cpp; sourceTree = SOURCE_ROOT; };
+		5A0000010000000000001016 /* ConvertTool.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ThirdParty/OpenKeyEngine/engine/ConvertTool.cpp; sourceTree = SOURCE_ROOT; };
+		5A0000010000000000001017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5A0000010000000000002001 /* NKey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NKey.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5A0000010000000000003001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5A0000010000000000003003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A0000010000000000000014 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXGroup section */
+		5A0000010000000000004001 = {
+			isa = PBXGroup;
+			children = (
+				5A0000010000000000004002 /* NKey */,
+				5A0000010000000000004003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5A0000010000000000004002 /* NKey */ = {
+			isa = PBXGroup;
+			children = (
+				5A0000010000000000001001 /* main.swift */,
+				5A0000010000000000001002 /* AppDelegate.swift */,
+				5A0000010000000000001003 /* AppLog.swift */,
+				5A0000010000000000001004 /* InputMode.swift */,
+				5A0000010000000000001005 /* KeyCode.swift */,
+				5A0000010000000000001006 /* EventTapManager.swift */,
+				5A0000010000000000001007 /* KeyboardAutomator.swift */,
+				5A0000010000000000001008 /* SuggestionEngine.swift */,
+				5A0000010000000000001009 /* SuggestionPanel.swift */,
+				5A000001000000000000100A /* CaretPositionProvider.swift */,
+				5A000001000000000000100B /* StatusItemController.swift */,
+				5A000001000000000000100D /* KeyboardLayoutTranslator.swift */,
+				5A000001000000000000100E /* OpenKeyVietnameseEngine.swift */,
+				5A000001000000000000100F /* OpenKeyBridge.mm */,
+				5A0000010000000000001010 /* OpenKeyBridge.h */,
+				5A0000010000000000001011 /* NKey-Bridging-Header.h */,
+				5A000001000000000000100C /* Info.plist */,
+				5A0000010000000000001017 /* Assets.xcassets */,
+			);
+			path = NKey;
+			sourceTree = "<group>";
+		};
+		5A0000010000000000004003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A0000010000000000002001 /* NKey.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5A0000010000000000005001 /* NKey */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A0000010000000000007002 /* Build configuration list for PBXNativeTarget "NKey" */;
+			buildPhases = (
+				5A0000010000000000003002 /* Sources */,
+				5A0000010000000000003001 /* Frameworks */,
+				5A0000010000000000003003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NKey;
+			productName = NKey;
+			productReference = 5A0000010000000000002001 /* NKey.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5A0000010000000000006001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					5A0000010000000000005001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 5A0000010000000000007001 /* Build configuration list for PBXProject "NKey" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5A0000010000000000004001;
+			productRefGroup = 5A0000010000000000004003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5A0000010000000000005001 /* NKey */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A0000010000000000003002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A0000010000000000000001 /* main.swift in Sources */,
+				5A0000010000000000000002 /* AppDelegate.swift in Sources */,
+				5A0000010000000000000003 /* AppLog.swift in Sources */,
+				5A0000010000000000000004 /* InputMode.swift in Sources */,
+				5A0000010000000000000005 /* KeyCode.swift in Sources */,
+				5A0000010000000000000006 /* EventTapManager.swift in Sources */,
+				5A0000010000000000000007 /* KeyboardAutomator.swift in Sources */,
+				5A0000010000000000000008 /* SuggestionEngine.swift in Sources */,
+				5A0000010000000000000009 /* SuggestionPanel.swift in Sources */,
+				5A000001000000000000000A /* CaretPositionProvider.swift in Sources */,
+				5A000001000000000000000B /* StatusItemController.swift in Sources */,
+				5A000001000000000000000C /* KeyboardLayoutTranslator.swift in Sources */,
+				5A000001000000000000000D /* OpenKeyVietnameseEngine.swift in Sources */,
+				5A000001000000000000000E /* OpenKeyBridge.mm in Sources */,
+				5A000001000000000000000F /* Engine.cpp in Sources */,
+				5A0000010000000000000010 /* Vietnamese.cpp in Sources */,
+				5A0000010000000000000011 /* Macro.cpp in Sources */,
+				5A0000010000000000000012 /* SmartSwitchKey.cpp in Sources */,
+				5A0000010000000000000013 /* ConvertTool.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5A0000010000000000008001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5A0000010000000000008002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		5A0000010000000000008003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					ThirdParty/OpenKeyEngine/engine,
+				);
+				INFOPLIST_FILE = NKey/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.NKey;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NKey/NKey-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5A0000010000000000008004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					ThirdParty/OpenKeyEngine/engine,
+				);
+				INFOPLIST_FILE = NKey/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.NKey;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NKey/NKey-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A0000010000000000007001 /* Build configuration list for PBXProject "NKey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A0000010000000000008001 /* Debug */,
+				5A0000010000000000008002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A0000010000000000007002 /* Build configuration list for PBXNativeTarget "NKey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A0000010000000000008003 /* Debug */,
+				5A0000010000000000008004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5A0000010000000000006001 /* Project object */;
+}
