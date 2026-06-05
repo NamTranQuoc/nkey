@@ -53,6 +53,7 @@
 		5A0000010000000000001015 /* SmartSwitchKey.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ThirdParty/OpenKeyEngine/engine/SmartSwitchKey.cpp; sourceTree = SOURCE_ROOT; };
 		5A0000010000000000001016 /* ConvertTool.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ThirdParty/OpenKeyEngine/engine/ConvertTool.cpp; sourceTree = SOURCE_ROOT; };
 		5A0000010000000000001017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5A0000010000000000001018 /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
 		5A0000010000000000002001 /* NKey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NKey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,6 +82,7 @@
 		5A0000010000000000004001 = {
 			isa = PBXGroup;
 			children = (
+				5A0000010000000000004004 /* Config */,
 				5A0000010000000000004002 /* NKey */,
 				5A0000010000000000004003 /* Products */,
 			);
@@ -117,6 +119,14 @@
 				5A0000010000000000002001 /* NKey.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5A0000010000000000004004 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				5A0000010000000000001018 /* Version.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +329,7 @@
 		};
 		5A0000010000000000008003 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A0000010000000000001018 /* Version.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGNING_ALLOWED = NO;
@@ -344,6 +355,7 @@
 		};
 		5A0000010000000000008004 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A0000010000000000001018 /* Version.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGNING_ALLOWED = NO;

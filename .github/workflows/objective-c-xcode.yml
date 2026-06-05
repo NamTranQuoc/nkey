@@ -1,30 +1,90 @@
-name: Xcode - Build and Analyze
+name: Build And Release DMG
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  APP_NAME: NKey
+  PROJECT: NKey.xcodeproj
+  SCHEME: NKey
+  CONFIGURATION: Release
+  VERSION_CONFIG: Config/Version.xcconfig
 
 jobs:
-  build:
-    name: Build and analyse default scheme using xcodebuild command
+  build-release:
+    name: Build DMG and publish release
     runs-on: macos-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set Default Scheme
+
+      - name: Read version
         run: |
-          scheme_list=$(xcodebuild -list -json | tr -d "\n")
-          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
-          echo $default | cat >default
-          echo Using default scheme: $default
+          app_version=$(awk -F= '/^[[:space:]]*MARKETING_VERSION[[:space:]]*=/{gsub(/[[:space:]]/, "", $2); print $2}' "$VERSION_CONFIG")
+          build_number=$(awk -F= '/^[[:space:]]*CURRENT_PROJECT_VERSION[[:space:]]*=/{gsub(/[[:space:]]/, "", $2); print $2}' "$VERSION_CONFIG")
+
+          if [ -z "$app_version" ]; then
+            echo "MARKETING_VERSION is missing in $VERSION_CONFIG"
+            exit 1
+          fi
+
+          if [ -z "$build_number" ]; then
+            echo "CURRENT_PROJECT_VERSION is missing in $VERSION_CONFIG"
+            exit 1
+          fi
+
+          echo "APP_VERSION=$app_version" >> "$GITHUB_ENV"
+          echo "BUILD_NUMBER=$build_number" >> "$GITHUB_ENV"
+          echo "TAG_NAME=v$app_version" >> "$GITHUB_ENV"
+          echo "DMG_NAME=$APP_NAME-v$app_version.dmg" >> "$GITHUB_ENV"
+
       - name: Build
-        env:
-          scheme: ${{ 'default' }}
         run: |
-          if [ $scheme = default ]; then scheme=$(cat default); fi
-          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
-          file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-          xcodebuild clean build analyze -scheme "$scheme" -"$filetype_parameter" "$file_to_build" | xcpretty && exit ${PIPESTATUS[0]}
+          xcodebuild clean build \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -configuration "$CONFIGURATION" \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Create DMG
+        run: |
+          app_path="build/DerivedData/Build/Products/$CONFIGURATION/$APP_NAME.app"
+          dmg_root="build/dmg-root"
+          dmg_path="build/$DMG_NAME"
+
+          if [ ! -d "$app_path" ]; then
+            echo "App bundle not found at $app_path"
+            exit 1
+          fi
+
+          rm -rf "$dmg_root" "$dmg_path"
+          mkdir -p "$dmg_root"
+          cp -R "$app_path" "$dmg_root/"
+
+          hdiutil create \
+            -volname "$APP_NAME $APP_VERSION" \
+            -srcfolder "$dmg_root" \
+            -ov \
+            -format UDZO \
+            "$dmg_path"
+
+          echo "DMG_PATH=$dmg_path" >> "$GITHUB_ENV"
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view "$TAG_NAME" >/dev/null 2>&1; then
+            gh release create "$TAG_NAME" \
+              --title "$APP_NAME $APP_VERSION" \
+              --notes "$APP_NAME $APP_VERSION"
+          fi
+
+          gh release upload "$TAG_NAME" "$DMG_PATH" --clobber

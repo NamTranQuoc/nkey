@@ -4,7 +4,7 @@ NKey is a lightweight macOS menu bar utility for switching between English and V
 
 ## Install And Use
 
-Download the latest `.dmg` installer from [NKey Releases](https://github.com/namtran/nkey/releases/latest).
+Download the latest `.dmg` installer from [NKey Releases](https://github.com/NamTranQuoc/nkey/releases/latest).
 
 ### Install
 
@@ -51,6 +51,10 @@ Vietnamese mode uses OpenKey's GPL-3.0 Telex engine.
 - macOS 13 or newer.
 - Xcode 14 or newer.
 - The same `Accessibility` and `Input Monitoring` permissions described above.
+
+### Version
+
+Update `MARKETING_VERSION` in `Config/Version.xcconfig` before creating a new release.
 
 ### Run With Xcode
 
