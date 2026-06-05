@@ -64,6 +64,8 @@ jobs:
             exit 1
           fi
 
+          codesign --force --deep --sign - "$app_path"
+
           rm -rf "$dmg_root" "$dmg_path"
           mkdir -p "$dmg_root"
           cp -R "$app_path" "$dmg_root/"
@@ -81,10 +83,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if ! gh release view "$TAG_NAME" >/dev/null 2>&1; then
-            gh release create "$TAG_NAME" \
-              --title "$APP_NAME $APP_VERSION" \
-              --notes "$APP_NAME $APP_VERSION"
+          if gh release view "$TAG_NAME" >/dev/null 2>&1; then
+            echo "Release $TAG_NAME already exists."
+            echo "GitHub immutable releases cannot accept new or replaced assets after creation."
+            echo "Delete the existing release and tag, or bump MARKETING_VERSION in $VERSION_CONFIG, then rerun this workflow."
+            exit 1
           fi
 
-          gh release upload "$TAG_NAME" "$DMG_PATH" --clobber
+          gh release create "$TAG_NAME" "$DMG_PATH" \
+            --title "$APP_NAME $APP_VERSION" \
+            --notes "$APP_NAME $APP_VERSION"

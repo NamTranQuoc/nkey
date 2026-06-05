@@ -29,6 +29,16 @@ To grant permissions:
 
 You can also use `Open Privacy Settings` from the NKey menu to jump to the relevant settings pages.
 
+### If macOS Says The App Is Damaged
+
+If macOS shows `"NKey" is damaged and can't be opened`, remove the quarantine flag after moving the app to `Applications`:
+
+```sh
+xattr -dr com.apple.quarantine /Applications/NKey.app
+```
+
+Then open `NKey.app` again. This is only needed for unsigned or non-notarized local releases.
+
 ### Main Features
 
 - The menu bar item shows the current mode as `EN` or `VI`.
