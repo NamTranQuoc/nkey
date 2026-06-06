@@ -15,8 +15,8 @@ final class KeyboardAutomator {
         proxy: CGEventTapProxy? = nil,
         stabilizeAutocomplete: Bool = false
     ) {
-        let committedText = completion.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard replacementCount > 0, !committedText.isEmpty else { return }
+        let committedText = completion
+        guard replacementCount >= 0, !committedText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
 
         replaceText(
             committedText,

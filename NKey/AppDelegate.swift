@@ -197,7 +197,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             if let selectedSuggestion = suggestionPanel.selectedSuggestion {
                 commitSuggestion(selectedSuggestion, proxy: proxy)
             }
-            return false
+            return true
         case KeyCode.downArrow, KeyCode.rightArrow:
             suggestionPanel.selectNext()
             return true
@@ -211,7 +211,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     private func commitSuggestion(_ suggestion: String, proxy: CGEventTapProxy) {
         let replacementCount = suggestionEngine.currentPrefixLength
-        suggestionEngine.reset()
         suggestionPanel.hide()
         keyboardAutomator.commit(
             suggestion,
@@ -219,6 +218,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             proxy: proxy,
             stabilizeAutocomplete: needsAutocompleteStabilization()
         )
+        scheduleSuggestionPanelUpdate(suggestionEngine.nextWordSuggestions(afterCommittedWord: suggestion))
     }
 
     private func scheduleSuggestionPanelUpdate(_ suggestions: [String]) {

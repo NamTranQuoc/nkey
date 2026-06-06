@@ -1,0 +1,122 @@
+import Foundation
+
+final class NextWordPredictor {
+    private let predictions: [String: [String]]
+
+    init(predictions: [String: [String]] = NextWordPredictor.defaultPredictions) {
+        self.predictions = predictions
+    }
+
+    func suggestions(after word: String) -> [String] {
+        let key = Self.normalized(word)
+        guard let candidates = predictions[key] else { return [] }
+        return Array(candidates.prefix(3))
+    }
+
+    private static func normalized(_ word: String) -> String {
+        word.trimmingCharacters(in: CharacterSet.alphanumerics.inverted).lowercased()
+    }
+
+    private static let defaultPredictions: [String: [String]] = [
+        "a": ["few", "lot", "new"],
+        "about": ["the", "this", "that"],
+        "after": ["the", "that", "you"],
+        "all": ["the", "of", "right"],
+        "also": ["have", "need", "want"],
+        "am": ["not", "going", "sure"],
+        "an": ["example", "issue", "update"],
+        "and": ["the", "then", "we"],
+        "any": ["questions", "updates", "issues"],
+        "are": ["you", "we", "there"],
+        "as": ["well", "soon", "a"],
+        "at": ["the", "least", "this"],
+        "back": ["to", "in", "up"],
+        "be": ["able", "sure", "ready"],
+        "because": ["the", "it", "we"],
+        "been": ["working", "using", "able"],
+        "before": ["the", "we", "you"],
+        "best": ["way", "practice", "option"],
+        "but": ["it", "the", "we"],
+        "by": ["the", "default", "using"],
+        "can": ["you", "we", "also"],
+        "cannot": ["be", "find", "use"],
+        "check": ["the", "if", "this"],
+        "could": ["you", "be", "also"],
+        "day": ["and", "of", "to"],
+        "did": ["you", "not", "the"],
+        "do": ["you", "not", "we"],
+        "does": ["not", "the", "this"],
+        "done": ["with", "for", "yet"],
+        "for": ["the", "this", "you"],
+        "from": ["the", "this", "your"],
+        "get": ["the", "back", "started"],
+        "go": ["to", "back", "ahead"],
+        "going": ["to", "back", "well"],
+        "good": ["morning", "idea", "to"],
+        "got": ["it", "the", "your"],
+        "great": ["work", "job", "idea"],
+        "had": ["to", "the", "a"],
+        "has": ["been", "the", "a"],
+        "have": ["a", "to", "the"],
+        "hello": ["there", "everyone", "again"],
+        "help": ["with", "you", "me"],
+        "here": ["is", "are", "we"],
+        "hi": ["there", "everyone", "again"],
+        "how": ["are", "to", "is"],
+        "i": ["am", "think", "will"],
+        "if": ["you", "the", "we"],
+        "in": ["the", "this", "a"],
+        "is": ["the", "a", "not"],
+        "it": ["is", "will", "looks"],
+        "just": ["need", "wanted", "checking"],
+        "know": ["if", "that", "what"],
+        "let": ["me", "us", "the"],
+        "like": ["to", "this", "the"],
+        "make": ["sure", "the", "it"],
+        "me": ["know", "check", "see"],
+        "more": ["than", "details", "time"],
+        "need": ["to", "the", "a"],
+        "new": ["feature", "version", "one"],
+        "next": ["step", "time", "week"],
+        "no": ["problem", "need", "longer"],
+        "not": ["sure", "the", "able"],
+        "now": ["we", "the", "it"],
+        "of": ["the", "this", "course"],
+        "on": ["the", "this", "my"],
+        "one": ["of", "more", "thing"],
+        "or": ["the", "we", "you"],
+        "please": ["check", "let", "review"],
+        "see": ["you", "the", "if"],
+        "should": ["be", "we", "not"],
+        "so": ["we", "the", "it"],
+        "sure": ["the", "we", "to"],
+        "take": ["a", "the", "care"],
+        "thank": ["you", "for", "them"],
+        "thanks": ["for", "again", "so"],
+        "that": ["the", "is", "we"],
+        "the": ["same", "next", "first"],
+        "then": ["we", "the", "you"],
+        "there": ["is", "are", "was"],
+        "they": ["are", "will", "can"],
+        "think": ["we", "it", "this"],
+        "this": ["is", "will", "should"],
+        "time": ["to", "for", "we"],
+        "to": ["the", "be", "do"],
+        "today": ["and", "we", "is"],
+        "try": ["to", "again", "this"],
+        "up": ["the", "with", "to"],
+        "use": ["the", "this", "a"],
+        "was": ["the", "a", "not"],
+        "we": ["can", "need", "should"],
+        "well": ["as", "done", "then"],
+        "what": ["do", "is", "we"],
+        "when": ["you", "we", "the"],
+        "where": ["the", "we", "you"],
+        "will": ["be", "need", "also"],
+        "with": ["the", "this", "you"],
+        "work": ["on", "with", "for"],
+        "would": ["be", "you", "like"],
+        "you": ["can", "are", "want"],
+        "your": ["changes", "request", "app"]
+    ]
+}

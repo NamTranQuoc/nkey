@@ -16,6 +16,7 @@
 		5A0000010000000000000007 /* KeyboardAutomator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001007 /* KeyboardAutomator.swift */; };
 		5A0000010000000000000008 /* SuggestionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001008 /* SuggestionEngine.swift */; };
 		5A0000010000000000000009 /* SuggestionPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001009 /* SuggestionPanel.swift */; };
+		5A0000010000000000000015 /* NextWordPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000001019 /* NextWordPredictor.swift */; };
 		5A000001000000000000000A /* CaretPositionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A000001000000000000100A /* CaretPositionProvider.swift */; };
 		5A000001000000000000000B /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A000001000000000000100B /* StatusItemController.swift */; };
 		5A000001000000000000000C /* KeyboardLayoutTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A000001000000000000100D /* KeyboardLayoutTranslator.swift */; };
@@ -39,6 +40,7 @@
 		5A0000010000000000001007 /* KeyboardAutomator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAutomator.swift; sourceTree = "<group>"; };
 		5A0000010000000000001008 /* SuggestionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionEngine.swift; sourceTree = "<group>"; };
 		5A0000010000000000001009 /* SuggestionPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionPanel.swift; sourceTree = "<group>"; };
+		5A0000010000000000001019 /* NextWordPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextWordPredictor.swift; sourceTree = "<group>"; };
 		5A000001000000000000100A /* CaretPositionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretPositionProvider.swift; sourceTree = "<group>"; };
 		5A000001000000000000100B /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		5A000001000000000000100C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				5A0000010000000000001007 /* KeyboardAutomator.swift */,
 				5A0000010000000000001008 /* SuggestionEngine.swift */,
 				5A0000010000000000001009 /* SuggestionPanel.swift */,
+				5A0000010000000000001019 /* NextWordPredictor.swift */,
 				5A000001000000000000100A /* CaretPositionProvider.swift */,
 				5A000001000000000000100B /* StatusItemController.swift */,
 				5A000001000000000000100D /* KeyboardLayoutTranslator.swift */,
@@ -196,6 +199,7 @@
 				5A0000010000000000000007 /* KeyboardAutomator.swift in Sources */,
 				5A0000010000000000000008 /* SuggestionEngine.swift in Sources */,
 				5A0000010000000000000009 /* SuggestionPanel.swift in Sources */,
+				5A0000010000000000000015 /* NextWordPredictor.swift in Sources */,
 				5A000001000000000000000A /* CaretPositionProvider.swift in Sources */,
 				5A000001000000000000000B /* StatusItemController.swift in Sources */,
 				5A000001000000000000000C /* KeyboardLayoutTranslator.swift in Sources */,

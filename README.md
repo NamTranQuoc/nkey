@@ -43,7 +43,7 @@ Then open `NKey.app` again. This is only needed for unsigned or non-notarized lo
 
 - The menu bar item shows the current mode as `EN` or `VI`.
 - Press `Right Command` or `Ctrl+Space` to switch between English and Vietnamese.
-- English mode can show up to three local suggestion results after typing at least two letters.
+- English mode can show up to three local suggestion results after typing at least two letters, and next-word suggestions after pressing Space.
 - Use the `Suggestion List` menu checkbox to turn the suggestion list on or off.
 - Use `Shift+Space` to commit the highlighted suggestion.
 - Use `Shift+Up Arrow` / `Shift+Left Arrow` to select the previous suggestion.

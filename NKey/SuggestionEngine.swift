@@ -2,33 +2,46 @@ import AppKit
 import Foundation
 
 final class SuggestionEngine {
-    private let spellChecker: NSSpellChecker
-    private var wordBuffer = ""
+    private enum SuggestionKind {
+        case prefixCompletion
+        case nextWordPrediction
+    }
 
-    init(spellChecker: NSSpellChecker = .shared) {
+    private let spellChecker: NSSpellChecker
+    private let nextWordPredictor: NextWordPredictor
+    private var wordBuffer = ""
+    private var lastCompletedWord = ""
+    private var activeSuggestionKind: SuggestionKind?
+
+    init(spellChecker: NSSpellChecker = .shared, nextWordPredictor: NextWordPredictor = NextWordPredictor()) {
         self.spellChecker = spellChecker
+        self.nextWordPredictor = nextWordPredictor
     }
 
     var currentPrefixLength: Int {
-        wordBuffer.count
+        activeSuggestionKind == .prefixCompletion ? wordBuffer.count : 0
     }
 
     func reset() {
         wordBuffer.removeAll(keepingCapacity: true)
+        lastCompletedWord.removeAll(keepingCapacity: true)
+        activeSuggestionKind = nil
     }
 
     func suggestions(forTestingPrefix prefix: String) -> [String] {
         wordBuffer = prefix
+        activeSuggestionKind = .prefixCompletion
         defer { reset() }
         return completions()
     }
 
     func processKeyDown(keyCode: CGKeyCode, characters: String) -> [String] {
         if keyCode == KeyCode.delete {
-            if !wordBuffer.isEmpty {
-                wordBuffer.removeLast()
-            }
-            return completions()
+            return processDelete()
+        }
+
+        if keyCode == KeyCode.space {
+            return processSpace()
         }
 
         if isBoundaryKey(keyCode) || isBoundaryText(characters) {
@@ -40,13 +53,57 @@ final class SuggestionEngine {
             return completions()
         }
 
+        activeSuggestionKind = .prefixCompletion
+        lastCompletedWord.removeAll(keepingCapacity: true)
         wordBuffer.append(characters)
         return completions()
     }
 
+    func nextWordSuggestions(afterCommittedWord word: String) -> [String] {
+        lastCompletedWord = word
+        wordBuffer.removeAll(keepingCapacity: true)
+
+        let predictions = nextWordPredictor.suggestions(after: lastCompletedWord)
+        activeSuggestionKind = predictions.isEmpty ? nil : .nextWordPrediction
+        return predictions
+    }
+
+    private func processDelete() -> [String] {
+        if activeSuggestionKind == .nextWordPrediction, !lastCompletedWord.isEmpty {
+            wordBuffer = lastCompletedWord
+            lastCompletedWord.removeAll(keepingCapacity: true)
+            activeSuggestionKind = .prefixCompletion
+            return completions()
+        }
+
+        guard !wordBuffer.isEmpty else {
+            reset()
+            return []
+        }
+
+        activeSuggestionKind = .prefixCompletion
+        wordBuffer.removeLast()
+        return completions()
+    }
+
+    private func processSpace() -> [String] {
+        guard !wordBuffer.isEmpty else {
+            reset()
+            return []
+        }
+
+        lastCompletedWord = wordBuffer
+        wordBuffer.removeAll(keepingCapacity: true)
+
+        return nextWordSuggestions(afterCommittedWord: lastCompletedWord)
+    }
+
     private func completions() -> [String] {
         let prefix = wordBuffer.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard prefix.count >= 2 else { return [] }
+        guard prefix.count >= 2 else {
+            activeSuggestionKind = nil
+            return []
+        }
 
         let range = NSRange(location: 0, length: prefix.utf16.count)
         let rawCompletions = spellChecker.completions(
@@ -74,12 +131,13 @@ final class SuggestionEngine {
                 return lhs.count < rhs.count
             }
 
-        return Array(rankedCompletions.prefix(3))
+        let suggestions = Array(rankedCompletions.prefix(3))
+        activeSuggestionKind = suggestions.isEmpty ? nil : .prefixCompletion
+        return suggestions
     }
 
     private func isBoundaryKey(_ keyCode: CGKeyCode) -> Bool {
-        keyCode == KeyCode.space ||
-            keyCode == KeyCode.return ||
+        keyCode == KeyCode.return ||
             keyCode == KeyCode.tab ||
             keyCode == KeyCode.escape
     }
