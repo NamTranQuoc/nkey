@@ -1184,7 +1184,10 @@ void handleMainKey(const Uint16& data, const bool& isCaps) {
     }
     
     if (!isChanged) {
-        if (data == KEY_W && vInputType != vSimpleTelex1) {
+        // NKey: keep a leading "w" as a literal "w" instead of turning it into a
+        // standalone "ư". Converting the first character causes confusing output
+        // such as "wư", so only allow the standalone shortcut after another key.
+        if (data == KEY_W && vInputType != vSimpleTelex1 && _index > 0) {
             checkForStandaloneChar(data, isCaps, KEY_U);
         } else {
             insertKey(data, isCaps);

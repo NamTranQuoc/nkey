@@ -23,11 +23,26 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         requestRequiredPermissionsIfNeeded()
         updatePermissionStatus()
         startEventTap()
+        observeApplicationActivation()
         logPermissionState()
     }
 
     func applicationWillTerminate(_ notification: Notification) {
         eventTapManager?.stop()
+        NSWorkspace.shared.notificationCenter.removeObserver(self)
+    }
+
+    private func observeApplicationActivation() {
+        NSWorkspace.shared.notificationCenter.addObserver(
+            self,
+            selector: #selector(activeApplicationDidChange),
+            name: NSWorkspace.didActivateApplicationNotification,
+            object: nil
+        )
+    }
+
+    @objc private func activeApplicationDidChange(_ notification: Notification) {
+        resetInputSession()
     }
 
     private func configureModeState() {
@@ -105,9 +120,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             return handleFlagsChanged(event: event, keyCode: keyCode)
         case .keyDown:
             return handleKeyDown(proxy: proxy, event: event, keyCode: keyCode)
+        case .leftMouseDown, .rightMouseDown, .otherMouseDown:
+            resetInputSession()
+            return event
         default:
             return event
         }
+    }
+
+    private func resetInputSession() {
+        vietnameseEngine.reset()
+        suggestionEngine.reset()
+        suggestionPanel.hide()
     }
 
     private func handleFlagsChanged(event: CGEvent, keyCode: CGKeyCode) -> CGEvent? {

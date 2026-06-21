@@ -28,7 +28,10 @@ final class EventTapManager {
         let eventMask = [
             CGEventType.keyDown,
             CGEventType.keyUp,
-            CGEventType.flagsChanged
+            CGEventType.flagsChanged,
+            CGEventType.leftMouseDown,
+            CGEventType.rightMouseDown,
+            CGEventType.otherMouseDown
         ].reduce(CGEventMask(0)) { mask, type in
             mask | (CGEventMask(1) << type.rawValue)
         }
