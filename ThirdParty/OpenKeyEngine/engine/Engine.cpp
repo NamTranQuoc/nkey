@@ -1462,9 +1462,10 @@ void vKeyHandleEvent(const vKeyEvent& event,
                 startNewSession();
                 _specialChar.clear();
                 restoreLastTypingState();
-            } else { //August 23rd continue check grammar
-                checkGrammar(1);
             }
+            // NKey: Backspace only drops the last character, leftward. Do not
+            // rerun grammar to strip or reposition marks first; that caused
+            // extra replacements and mismatched on-screen text.
         }
     } else { //START AND CHECK KEY
         if (_willTempOffEngine) {

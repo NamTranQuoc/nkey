@@ -182,6 +182,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         suggestionPanel.hide()
 
         let result = vietnameseEngine.processKeyDown(keyCode: keyCode, typedText: typedText, flags: event.flags)
+
+        if keyCode == KeyCode.delete {
+            return event
+        }
+
         guard result.shouldConsumeEvent else {
             return event
         }
